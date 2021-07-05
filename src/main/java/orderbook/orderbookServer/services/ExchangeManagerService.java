@@ -12,6 +12,7 @@ import org.apache.logging.log4j.util.Strings;
 
 import javax.annotation.PostConstruct;
 import java.io.FileReader;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -60,7 +61,7 @@ public class ExchangeManagerService {
 
             // print Data
             for (String[] row : allData) {
-                orders.add(new Order(row[0], row[1], row[2], row[3], Double.valueOf(row[4]), Double.valueOf(row[5]), row[6], row[7]));
+                orders.add(new Order(Instant.ofEpochMilli( Long.parseLong( row[0] ) ), row[1], row[2], row[3], Double.valueOf(row[4]), Double.valueOf(row[5]), row[6], row[7]));
             }
         }
         catch (Exception e) {

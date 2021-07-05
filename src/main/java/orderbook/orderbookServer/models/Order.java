@@ -3,10 +3,12 @@ package orderbook.orderbookServer.models;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.time.Instant;
+
 @Data
 @AllArgsConstructor
 public class Order {
-    private String timestamp;
+    private Instant timestamp;
     private String exchange;
     private String symbol;
     private String side;
